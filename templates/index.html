@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock title %}
+
+{% block content %}
+
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="page_inner">
+                    <div class="page_heading">
+                        <h3 style="color: black ; text-align: center; "> Daily Task Update</h3>
+                    </div>
+                    <section class="page_content">
+                        <form action="/submit" method="POST" enctype="multipart/form-data" autocomplete="off" >
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="block-label sm-mb0"> Name </label>
+                                    <input type="text" class="form-control boxes text-input input--full"
+                                        id="feature-title" name="feature-title" placeholder="Enter the Name"
+                                        required />
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="block-label sm-mb0">Date</label>
+                                    <input type="date" class="form-control boxes text-input input--full"
+                                        id="date" name="date" placeholder="Date" required />
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="block-label sm-mb0"> Task </label>
+                                    <input type="text" class="form-control boxes text-input input--full"
+                                        id="feature-title" name="feature-title" placeholder="Enter the Name"
+                                        required />
+                                </div>
+                            </div>
+
+                            <br>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="block-label sm-mb0">Working Time</label>
+                                    <input type="time" class="form-control boxes text-input input--full"
+                                        id="time" name="time" placeholder="Time" required />
+                                </div>
+                                <br>
+                                <div>
+                                    <button onclick="document.location='default.asp'">Submit</button>
+                                </div>
+                            </div>
+                            <br>
+
+
+                        </form>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

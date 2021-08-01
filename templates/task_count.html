@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Task-count{% endblock title %}
+
+{% block content %}
+<style>
+    table, th, td {
+  border: 1px solid black;
+  
+}
+</style>
+<br>
+
+<h2 style="text-align: center;" >Number of Task Updated per-Intern </h2> 
+<br> 
+<br>
+<table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Task Updated</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in agg_result %}
+        <tr>
+          <td>{{ user._id }}</td>
+          <td>{{ user.Task_count }}</td>
+          
+         
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+<br>
+
+{% endblock content %}

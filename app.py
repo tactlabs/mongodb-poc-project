@@ -85,8 +85,30 @@ def drop():
 
     return redirect(request.referrer) 
 
-@app.route('/sort',methods=["GET","POST"])
-def sort():
+
+
+# @app.route('/sort',methods=["GET","POST"])
+# def sort():
+#     collection = db["details"]
+#     details =[]
+#     for x in collection.find().sort({"Name":1}):
+#         name = x['Name']
+#         date = x['Date']
+#         task = x['Task']
+#         time = x['Working Time']
+
+#         result = {
+#             'Name' : name,
+#             'Date' : date,
+#             'Task' : task,
+#             'Working_Time' : time
+#         }
+#         details.append(result)
+#     # print(details)
+#     return render_template("sort.html",result = details)
+
+@app.route('/task_count',methods=["GET","POST"])
+def task_count():
     collection = db["details"]
     # details =[]
     agg_result = collection.aggregate(
@@ -97,8 +119,9 @@ def sort():
              }}
         ])
     
-    return render_template("sort.html",agg_result = agg_result)
+    return render_template("task_count.html",agg_result = agg_result)
     
+
 
 if __name__ == '__main__':
     app.run(debug=True,port=PORT)

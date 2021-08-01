@@ -75,7 +75,7 @@ def all_details():
             'Working_Time' : time
         }
         details.append(result)
-    print(details)
+    # print(details)
     return render_template("all_details.html",result = details)
 
 @app.route('/drop',methods=['GET','POST'])
@@ -86,26 +86,19 @@ def drop():
     return redirect(request.referrer) 
 
 @app.route('/sort',methods=["GET","POST"])
-def all_details():
+def sort():
     collection = db["details"]
-    details =[]
-    for x in collection.find():
-        name = x['Name']
-        date = x['Date']
-        task = x['Task']
-        time = x['Working Time']
-
-        result = {
-            'Name' : name,
-            'Date' : date,
-            'Task' : task,
-            'Working_Time' : time
-        }
-        details.append(result)
+    # details =[]
+    agg_result = collection.aggregate(
+        [{
+            "$group" :
+             {"_id" : "$Name",
+             "Task_count" : {"$sum" : 1}
+             }}
+        ])
     
-
+    return render_template("sort.html",agg_result = agg_result)
     
-    # return render_template("sort.html",result = agre)
 
 if __name__ == '__main__':
     app.run(debug=True,port=PORT)

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title  %} Admin Page {% endblock title %}
+
+{% block content %}
+
+<h1 style="text-align: center;" >Admin Page</h1>
+
+<div class="row " style="margin-top: 150px;" >
+    <!-- <div class="col-md-4">
+        <div >
+            <form action="/enter-names" method="POST">
+                <h5>Number Of Inputs</h5>
+                <input type="number" name="num" placeholder="Enter Number Of Inputs" >
+                <br> <br>
+                <input class="btn btn-success" type="submit" value="Submit">
+            </form>
+        </div>
+    </div> -->
+    <div class="col-md-4 text-center ">
+        <div class="number center">
+            <form action="/all_details" method="POST">
+                <h5>To See All Inters Updates</h5>  
+                <br>          <br>
+                <input class="btn btn-success" type="submit" value="Updates">
+            </form>
+        </div>
+    </div>
+    <!-- <div class="col-md-4">
+        <div class="number center">
+            <form action="/update" method="POST">
+                <h5>Update & Delete Name</h5>   
+                <br>     <br>    
+                <input class="btn btn-success" type="submit" value="update">
+            </form>
+        </div>
+    </div> -->
+    <!-- <div class="col-md-4">
+        <div class="number center">
+            <form action="/vote_details" method="POST">
+                <h5>Intern details</h5>  
+                <br>          <br>
+                <input class="btn btn-success" type="submit" value="update">
+            </form>
+        </div>
+    </div> -->
+</div>
+<br>
+
+<section>
+    <footer>
+        <div class="footer">
+            <p>Footer</p>
+          </div>
+    </footer>
+</section>
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}All details {% endblock title %}
+
+{% block content %}
+<style>
+    table, th, td {
+  border: 1px solid black;
+  
+}
+</style>
+<br>
+
+<h2 style="text-align: center;" >Interns Updates</h2> 
+<br> 
+<br>
+<table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Task</th>
+        <th>Working Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in result %}
+        <tr>
+          <td>{{ user.Name }}</td>
+          <td>{{ user.Date }}</td>
+          <td>{{ user.Task }}</td>
+          <td>{{ user.Working_Time }}</td>
+         
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+<br>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <form action="/sort" method="POST">
+                    <h6>To sort by name</h6>   
+                    <br>    
+                    <input class="btn btn-success" type="submit" value="Drop">
+                </form>
+            </div>
+            <div class="col-md-3">
+                <div class="">
+                    <div class="number center">
+                        <form action="/drop" method="POST">
+                            <h6>To delete all values</h6>   
+                            <br>    
+                            <input class="btn btn-success" type="submit" value="Drop">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -25,34 +25,28 @@ def submt():
     if request.method == 'POST':
 
         name = request.form.get("nm")
-        date = request.form.get("date")
-        task = request.form.get("task")
-        time = request.form.get("time")
+        email = request.form.get("email")
+        clname = request.form.get("clname")
+        year_month = request.form.get("ym")
 
-        # print(name)
-        # print(date)
-        # print(task)
-        # print(time)
-        query = {"Name" : name ,"Date" : date , "Task" : task , "Working Time" : time}
+        query = {"Name" : name ,"Email" : email , "College_Name" : clname , "Passout_Year" : year_month}
         collection.insert_one(query)
         
         for x in collection.find():
-            name = x['Name']
-            date = x['Date']
-            task = x['Task']
-            time = x['Working Time']
+            name   = x['Name']
+            email  = x['Email']
+            clname = x['College_Name']
+            year_month = x['Passout_Year']
 
             result = {
                 'Name' : name,
-                'Date' : date,
-                'Task' : task,
-                'Working_Time' : time
+                'Email' : email,
+                'College_Name' : clname,
+                'Passout_Year' : year_month
             }
 
     return render_template("intern.html",result = result)
 
-
-    # return "Daily update added successfully! "
 
 @app.route('/admin')
 def admin():
@@ -63,16 +57,16 @@ def all_details():
     collection = db["details"]
     details =[]
     for x in collection.find():
-        name = x['Name']
-        date = x['Date']
-        task = x['Task']
-        time = x['Working Time']
+        name   = x['Name']
+        email  = x['Email']
+        clname = x['College_Name']
+        year_month = x['Passout_Year']
 
         result = {
             'Name' : name,
-            'Date' : date,
-            'Task' : task,
-            'Working_Time' : time
+            'Email' : email,
+            'College_Name' : clname,
+            'Passout_Year' : year_month
         }
         details.append(result)
     # print(details)
@@ -84,28 +78,7 @@ def drop():
     collection.delete_many({})
 
     return redirect(request.referrer) 
-
-
-
-# @app.route('/sort',methods=["GET","POST"])
-# def sort():
-#     collection = db["details"]
-#     details =[]
-#     for x in collection.find().sort({"Name":1}):
-#         name = x['Name']
-#         date = x['Date']
-#         task = x['Task']
-#         time = x['Working Time']
-
-#         result = {
-#             'Name' : name,
-#             'Date' : date,
-#             'Task' : task,
-#             'Working_Time' : time
-#         }
-#         details.append(result)
-#     # print(details)
-#     return render_template("sort.html",result = details)
+  
 
 @app.route('/task_count',methods=["GET","POST"])
 def task_count():
@@ -114,12 +87,12 @@ def task_count():
     agg_result = collection.aggregate(
         [{
             "$group" :
-             {"_id" : "$Name",
-             "Task_count" : {"$sum" : 1}
+             {"_id" : "$College_Name",
+             "Number_of_interns" : {"$sum" : 1}
              }}
         ])
     
-    return render_template("task_count.html",agg_result = agg_result)
+    return render_template("number_of_interns.html",agg_result = agg_result)
     
 
 

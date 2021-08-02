@@ -12,24 +12,24 @@
 
 <h2 style="text-align: center;" ></h2> 
 <br> 
-<h5>Daily Update Added Successfully!</h5>
+<h5>Intern Details Updated</h5>
 <br>
 <table id="data" class="table table-striped">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Date</th>
-        <th>Task</th>
-        <th>Working Time</th>
+        <th>Email</th>
+        <th>College Name</th>
+        <th>Passout Year & Month</th>
       </tr>
     </thead>
     <tbody>
       {% if result %}
         <tr>
           <td>{{ result.Name }}</td>
-          <td>{{ result.Date }}</td>
-          <td>{{ result.Task }}</td>
-          <td>{{ result.Working_Time }}</td>
+          <td>{{ result.Email }}</td>
+          <td>{{ result.College_Name }}</td>
+          <td>{{ result.Passout_Year }}</td>
          
         </tr>
       {% endif %}

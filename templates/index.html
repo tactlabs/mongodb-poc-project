@@ -10,36 +10,44 @@
                 <section class="page_inner">
                     <div class="page_heading">
                         <br>
-                        <h3 style="color: black ; text-align: center; "> Daily Task Update</h3>
+                        <h3 style="color: black ; text-align: center; "> Intern Details</h3>
                     </div>
                     <section class="page_content">
-                        <form action="/submit" method="POST" enctype="multipart/form-data" autocomplete="off" >
+                        <form action="/submit" method="POST" enctype="multipart/form-data" autocomplete="off">
 
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="block-label sm-mb0"> Name </label>
-                                    <input type="text" class="form-control boxes text-input input--full"
-                                        id="name" name="nm" placeholder="Enter the Name"
-                                        required />
+                                    <input type="text" class="form-control boxes text-input input--full" id="name"
+                                        name="nm" placeholder="Enter your Name" required />
                                 </div>
                             </div>
                             <br>
 
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="block-label sm-mb0">Date</label>
                                     <input type="date" class="form-control boxes text-input input--full"
                                         id="date" name="date" placeholder="Date" required />
                                 </div>
                             </div>
+                            <br> -->
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="block-label sm-mb0" for="exampleInputEmail1"> Email address </label>
+                                    <input type="text" class="form-control boxes text-input input--full"
+                                        autocomplete="off" id="exampleInputEmail1" name="email"
+                                        placeholder="Enter your email address" required />
+                                </div>
+                            </div>
                             <br>
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="block-label sm-mb0"> Task </label>
-                                    <input type="text" class="form-control boxes text-input input--full"
-                                        id="task" name="task" placeholder="Enter the Task"
-                                        required />
+                                    <label class="block-label sm-mb0"> College Name </label>
+                                    <input type="text" class="form-control boxes text-input input--full" id="task"
+                                        name="clname" placeholder="Enter your college name" required />
                                 </div>
                             </div>
 
@@ -48,9 +56,8 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="block-label sm-mb0">Working Time</label>
-                                    <input type="time" class="form-control boxes text-input input--full"
-                                        id="time" name="time" placeholder="Time" required />
+                                    <label class="block-label sm-mb0">Year of Passing</label>
+                                    <input type="month" id="ym" name="ym">
                                 </div>
                                 <br>
                                 <div>
@@ -73,7 +80,7 @@
     <footer>
         <div class="footer">
             <p>Footer</p>
-          </div>
+        </div>
     </footer>
 </section>
 {% endblock content %}

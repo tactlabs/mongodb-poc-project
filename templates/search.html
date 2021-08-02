@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}sort{% endblock title %}
+{% block title %}search-details{% endblock title %}
 
 {% block content %}
 <style>
@@ -12,7 +12,7 @@
 </style>
 <br>
 
-<h2 style="text-align: center;">sort Details</h2>
+<h2 style="text-align: center;">search Details</h2>
 <br>
 <br>
 <table id="data" class="table table-striped">
@@ -25,12 +25,12 @@
     </tr>
   </thead>
   <tbody>
-    {% for user in result %}
+    {% for x in result%}
     <tr>
-      <td>{{ user.Name }}</td>
-      <td>{{ user.Email }}</td>
-      <td>{{ user.College_Name }}</td>
-      <td>{{ user.Passout_Year }}</td>
+      <td>{{ x.Name }}</td>
+      <td>{{ x.Email }}</td>
+      <td>{{ x.College_Name }}</td>
+      <td>{{ x.Passout_Year }}</td>
 
     </tr>
     {% endfor %}

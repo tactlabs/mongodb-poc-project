@@ -3,72 +3,110 @@
 
 {% block content %}
 <style>
-    table, th, td {
-  border: 1px solid black;
-  
-}
+  table,
+  th,
+  td {
+    border: 1px solid black;
+
+  }
 </style>
 <br>
 
-<h2 style="text-align: center;" >Intern Details</h2> 
-<br> 
+<h2 style="text-align: center;">Intern Details</h2>
+<br>
 <br>
 <table id="data" class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>College Name</th>
-        <th>Passout Year & Month</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for user in result %}
-        <tr>
-          <td>{{ user.Name }}</td>
-          <td>{{ user.Email }}</td>
-          <td>{{ user.College_Name }}</td>
-          <td>{{ user.Passout_Year }}</td>
-         
-        </tr>
-      {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>College Name</th>
+      <th>Passout Year & Month</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in result %}
+    <tr>
+      <td>{{ user.Name }}</td>
+      <td>{{ user.Email }}</td>
+      <td>{{ user.College_Name }}</td>
+      <td>{{ user.Passout_Year }}</td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
 <br>
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-3">
-              <!-- <form action="/sort" method="POST">
-                <h6>sort the details based on name ascending order</h6>   
-                <br>    
-                <input class="btn btn-success" type="submit" value="click">
-            </form> -->
-              
-
-            </div>
-            <div class="col-md-3">
-                <form action="/task_count" method="POST">
-                    <h6>To see the number of interns from each college</h6>   
-                    <br>    
-                    <input class="btn btn-success" type="submit" value="click">
-                </form>
-            </div>
-            <div class="col-md-3">
-                <div class="">
-                    <div class="number center">
-                        <form action="/drop" method="POST">
-                            <h6>To delete all values</h6>   
-                            <br>    
-                            <input class="btn btn-success" type="submit" value="Drop">
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="number center">
+          <form action="/sort" method="POST">
+            <h6>To get the names sorted format</h6>
+            <br>
+            <input class="btn btn-success" type="submit" value="Click">
+          </form>
         </div>
+
+      </div>
+      <div class="col-md-3">
+        <div class="number center">
+          <form action="/find_one" method="POST">
+            <h6>To get the first data in the details list</h6>
+            <br>
+            <input class="btn btn-success" type="submit" value="Click">
+          </form>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <form action="/college-count" method="POST">
+          <h6>To see the number of interns from each college</h6>
+          <br>
+          <input class="btn btn-success" type="submit" value="click">
+        </form>
+      </div>
+      <div class="col-md-3">
+        <div class="">
+          <div class="number center">
+            <form action="/drop" method="POST">
+              <h6>To delete all values</h6>
+              <br>
+              <input class="btn btn-success" type="submit" value="Drop">
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+
+<br>
+<br>
+<br>
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="number center">
+          <form action="/Names_only" method="POST">
+            <h6>To show Interns  Names only</h6>
+            <br>
+            <input class="btn btn-success" type="submit" value="Click">
+          </form>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+
+      </div>
+
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-3">
+
+      </div>
+
+    </div>
+  </div>
 </section>
 {% endblock content %}

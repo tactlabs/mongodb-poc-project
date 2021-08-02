@@ -47,6 +47,16 @@ def submt():
 
     return render_template("intern.html",result = result)
 
+@app.route('/find_one',methods=['GET','POST'])
+def first_one():
+    # print(collection.find_one_and_update({'Name':"Aswin s"},
+    #                     { '$set': { "College_Name" : 'jab'} }))
+
+    result = collection.find_one()
+        
+    print(result)
+    return render_template("find_one.html",result = result)
+
 
 @app.route('/admin')
 def admin():
@@ -80,7 +90,7 @@ def drop():
     return redirect(request.referrer) 
   
 
-@app.route('/task_count',methods=["GET","POST"])
+@app.route('/college-count',methods=["GET","POST"])
 def task_count():
     collection = db["details"]
     # details =[]
@@ -94,6 +104,29 @@ def task_count():
     
     return render_template("number_of_interns.html",agg_result = agg_result)
     
+
+
+@app.route('/sort',methods=['GET','POST'])
+def sort():
+    # print(collection.find_one_and_update({'Name':"Aswin s"},
+    #                     { '$set': { "College_Name" : 'jab'} }))
+
+    result = collection.find().sort("Name")
+        
+    print(result)
+    return render_template("sort.html",result = result)
+
+
+# @app.route('/Names_only',methods=['GET','POST'])
+# def Names_only():
+#     nm = request.form.get("nm")
+#     print(nm)
+#     cl = request.form.get("cl")
+#     result = collection.find_one({"Name":nm},
+#                                { 'College_Name':cl})
+#     print(result)
+
+#     return render_template("search.html",result = result)
 
 
 if __name__ == '__main__':

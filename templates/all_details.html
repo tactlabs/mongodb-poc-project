@@ -37,13 +37,16 @@
   </tbody>
 </table>
 <br>
+<br>
+<br>
+<br>
 <section>
   <div class="container">
     <div class="row">
       <div class="col-md-3">
         <div class="number center">
           <form action="/sort" method="POST">
-            <h6>To get the names sorted format</h6>
+            <h6>To get the intern  names in  alphabetical order</h6>
             <br>
             <input class="btn btn-success" type="submit" value="Click">
           </form>
@@ -53,7 +56,7 @@
       <div class="col-md-3">
         <div class="number center">
           <form action="/find_one" method="POST">
-            <h6>To get the first data in the details list</h6>
+            <h6>To see the first data inserted into the table</h6>
             <br>
             <input class="btn btn-success" type="submit" value="Click">
           </form>
@@ -71,9 +74,9 @@
         <div class="">
           <div class="number center">
             <form action="/drop" method="POST">
-              <h6>To delete all values</h6>
+              <h6>To delete all intern  details from the table</h6>
               <br>
-              <input class="btn btn-success" type="submit" value="Drop">
+              <input class="btn btn-success" type="submit" value="Delete All">
             </form>
           </div>
         </div>
@@ -86,23 +89,69 @@
     <div class="row">
 
       <div class="col-md-3">
-        <div class="number center">
-          <form action="/Names_only" method="POST">
-            <h6>To show Interns  Names only</h6>
+        <h6>To remove intern name from the table</h6>
+          <form action="/delete_one" method="POST" autocomplete="off" >
+            <div class="form-group">
+              <label for="exampleInputPassword1">Name</label>
+              <input type="text" class="form-control" id="del" name="del" placeholder="Enter the name">
+            </div>
+            <!-- <div class="form-group">
+              <label for="exampleInputPassword1">College Name</label>
+              <input type="text" class="form-control" id="cl" name="cl" placeholder="Enter the college name">
+            </div> -->
             <br>
-            <input class="btn btn-success" type="submit" value="Click">
+            <input class="btn btn-success" type="submit" value="Remove">
           </form>
-        </div>
+       
 
       </div>
       <div class="col-md-3">
+        <h6>To search the intern name is present or not in the table</h6>
+          <form action="/search" method="POST" autocomplete="off" >
+            <div class="form-group">
+              <label for="exampleInputPassword1">Name</label>
+              <input type="text" class="form-control" id="nm" name="nm" placeholder="Enter the name">
+            </div>
+            <!-- <div class="form-group">
+              <label for="exampleInputPassword1">College Name</label>
+              <input type="text" class="form-control" id="cl" name="cl" placeholder="Enter the college name">
+            </div> -->
+            <br>
+            <input class="btn btn-success" type="submit" value="Search">
+          </form>
 
       </div>
 
       <div class="col-md-3">
+        <h6>Enter the limt to display the number of intern details in the table.</h6>
+        <form action="/limit" method="POST" autocomplete="off" >
+          <div class="form-group">
+            <label for="exampleInputPassword1">Enter the limit count</label>
+            <input type="number" class="form-control" id="nm" name="nm" placeholder="Enter the limit">
+          </div>
+          <!-- <div class="form-group">
+            <label for="exampleInputPassword1">College Name</label>
+            <input type="text" class="form-control" id="cl" name="cl" placeholder="Enter the college name">
+          </div> -->
+          <br>
+          <input class="btn btn-success" type="submit" value="Submit">
+        </form>   
 
       </div>
       <div class="col-md-3">
+        <form action="/name_edit" method="POST" autocomplete="off" >
+          <div class="form-group">
+            <label for="exampleInputPassword1"> <h6>Enter the intern name that you want to change</h6> </label>
+            <input type="text" class="form-control" id="name" name="name" placeholder=" Enter the name">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1"> <h6>Enter the new name that you want to update</h6> </label>
+            <input type="text" class="form-control" id="update" name="update" placeholder="Enter the name">
+          </div>
+          <br>
+          <input class="btn btn-success" type="submit" value="Update">
+        </form>
 
       </div>
 
@@ -110,3 +159,6 @@
   </div>
 </section>
 {% endblock content %}
+
+<h6>To Update the exsiting name of the intern</h6>
+          

@@ -49,9 +49,7 @@ def submt():
 
 @app.route('/find_one',methods=['GET','POST'])
 def first_one():
-    # print(collection.find_one_and_update({'Name':"Aswin s"},
-    #                     { '$set': { "College_Name" : 'jab'} }))
-
+   
     result = collection.find_one()
         
     print(result)
@@ -108,26 +106,50 @@ def task_count():
 
 @app.route('/sort',methods=['GET','POST'])
 def sort():
-    # print(collection.find_one_and_update({'Name':"Aswin s"},
-    #                     { '$set': { "College_Name" : 'jab'} }))
 
-    result = collection.find().sort("Name")
-        
-    print(result)
+    result = collection.find().sort("Name") 
+    # print(result)
     return render_template("sort.html",result = result)
 
 
-# @app.route('/Names_only',methods=['GET','POST'])
-# def Names_only():
-#     nm = request.form.get("nm")
-#     print(nm)
-#     cl = request.form.get("cl")
-#     result = collection.find_one({"Name":nm},
-#                                { 'College_Name':cl})
-#     print(result)
+@app.route('/search',methods=['GET','POST'])
+def search():
+    nm = request.form.get("nm")
+    # print(nm)
+    result = collection.find_one({"Name":nm})
+    # print(result)
 
-#     return render_template("search.html",result = result)
+    return render_template("search.html",result = result)
 
+
+@app.route('/delete_one',methods=['GET','POST'])
+def delete_name():
+    name = request.form.get("del")
+    print(name)
+    del_name = {"Name" : name}
+    collection.delete_one(del_name)
+
+    return redirect(request.referrer)
+
+@app.route('/name_edit',methods=['GET','POST'])
+def name_edit():
+    name = request.form.get("name")
+    update_name = request.form.get("update")
+
+    filter = { 'Name': name }
+    newvalues = { "$set": { 'Name': update_name } }
+
+    collection.update_one(filter, newvalues) 
+    return redirect(request.referrer)
+
+@app.route('/limit',methods=['GET','POST'])
+def limit():
+    lmt =int(request.form.get("nm"))
+    print(lmt)
+    doc1 = collection.find().limit(lmt)
+    # print(doc1)
+
+    return render_template("limited_intern_details.html",doc1 = doc1)
 
 if __name__ == '__main__':
     app.run(debug=True,port=PORT)

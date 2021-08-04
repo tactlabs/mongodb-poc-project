@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}search-details{% endblock title %}
+{% block title %}All details {% endblock title %}
 
 {% block content %}
 <style>
@@ -12,7 +12,7 @@
 </style>
 <br>
 
-<h2 style="text-align: center;">search Details</h2>
+<h2 style="text-align: center;">Intern Details</h2>
 <br>
 <br>
 <table id="data" class="table table-striped">
@@ -25,14 +25,15 @@
     </tr>
   </thead>
   <tbody>
-    {% if result%}
+    {% for user in doc1 %}
     <tr>
-      <td>{{ result.Name }}</td>
-      <td>{{ result.Email }}</td>
-      <td>{{ result.College_Name }}</td>
-      <td>{{ result.Passout_Year }}</td>
+      <td>{{ user.Name }}</td>
+      <td>{{ user.Email }}</td>
+      <td>{{ user.College_Name }}</td>
+      <td>{{ user.Passout_Year }}</td>
+
     </tr>
-    {% endif %}
+    {% endfor %}
   </tbody>
 </table>
 
